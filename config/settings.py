@@ -40,8 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Local Apps
+    # Local apps (custom applications for this project)
+    # Using AppConfig ensures Django loads app-specific configurations
+    # such as signals, startup logic, and custom settings defined in apps.py
     'users.apps.UsersConfig', # Register your new app
+    'courses.apps.CoursesConfig',
+    'enrollments.apps.EnrollmentsConfig',
 ]
 # Tell Django to use your custom model for authentication
 AUTH_USER_MODEL = 'users.CustomUser'
