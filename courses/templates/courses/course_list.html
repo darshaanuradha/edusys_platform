@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 mb-4">
+        <h2>Available Courses</h2>
+        <hr>
+    </div>
+    
+    {% for course in courses %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ course.title }}</h5>
+                <p class="card-text text-muted">{{ course.description|truncatewords:15 }}</p>
+                <p class="mb-2"><strong>Capacity:</strong> {{ course.capacity }} students</p>
+            </div>
+            <div class="card-footer bg-white border-top-0">
+                <a href="{% url 'courses:detail' course.id %}" class="btn btn-outline-primary w-100">View Details</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <div class="alert alert-info">No courses are currently available.</div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">{{ course.title }}</h3>
+            </div>
+            <div class="card-body">
+                <h4>Course Description</h4>
+                <p>{{ course.description }}</p>
+                
+                <hr>
+                <p><strong>Maximum Capacity:</strong> {{ course.capacity }}</p>
+                
+                <a href="{% url 'enrollments:enroll' course.id %}" class="btn btn-success btn-lg mt-3">
+                    Enroll in this Course
+                </a>
+                <a href="{% url 'courses:list' %}" class="btn btn-secondary btn-lg mt-3 ms-2">
+                    Back to Catalog
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
